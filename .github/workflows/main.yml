@@ -17,11 +17,14 @@ jobs:
         puppet_gem_version: [~> 5.0, ~> 6.0, ~> 7.0]
         exclude:
         - ruby_version: 2.4.10
-          puppet_gem_version: [~> 6.0, ~> 7.0]
+          puppet_gem_version: ~> 6.0
+          puppet_gem_version: ~> 7.0
         - ruby_version: 2.5.8
-          puppet_gem_version: [~> 5.0, ~> 7.0]
+          puppet_gem_version: ~> 5.0
+          puppet_gem_version: ~> 7.0
         - ruby_version: 2.7.2
-          puppet_gem_version: [~> 5.0, ~> 6.0]
+          puppet_gem_version: ~> 5.0
+          puppet_gem_version: ~> 6.0
     steps:
     - uses: actions/checkout@v2
     - uses: ruby/setup-ruby@v1
