@@ -13,15 +13,15 @@ jobs:
     strategy:
       matrix:
         check: [test]
-        ruby_version: [2.4.10, 2.5.8]
-        puppet_gem_version: [~> 5.0, ~> 6.0]
+        ruby_version: [2.4.10, 2.5.8, 2.7.2]
+        puppet_gem_version: [~> 5.0, ~> 6.0, ~> 7.0]
         exclude:
-        - puppet_gem_version: ~> 5.0
-          check: 'syntax lint metadata_lint check:symlinks check:git_ignore check:dot_underscore check:test_file rubocop'
         - ruby_version: 2.4.10
-          puppet_gem_version: ~> 6.0
+          puppet_gem_version: [~> 6.0, ~> 7.0]
         - ruby_version: 2.5.8
-          puppet_gem_version: ~> 5.0
+          puppet_gem_version: [~> 5.0, ~> 7.0]
+        - ruby_version: 2.7.2
+          puppet_gem_version: [~> 5.0, ~> 6.0]
     steps:
     - uses: actions/checkout@v2
     - uses: ruby/setup-ruby@v1
