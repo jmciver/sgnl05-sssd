@@ -24,6 +24,8 @@ jobs:
         ruby-version: ${{matrix.ruby_version}}
     - name: Spec Tests
       uses: puppetlabs/action-litmus_spec@master
+      env:
+        SPEC_OPTS: "--format documentation"
       with:
         puppet_gem_version: ${{ matrix.puppet_gem_version }}
         check: ${{ matrix.check }}
