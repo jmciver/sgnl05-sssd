@@ -24,7 +24,7 @@ jobs:
           puppet_gem_version: ~> 5.0
     steps:
     - uses: actions/checkout@v2
-    - uses: actions/setup-ruby@v1
+    - uses: ruby/setup-ruby@v1
       with:
         ruby_version: ${{matrix.ruby_version}}
     - name: Spec Tests
