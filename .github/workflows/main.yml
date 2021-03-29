@@ -12,7 +12,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        check: [test, 'syntax lint metadata_lint check:symlinks check:git_ignore check:dot_underscore check:test_file rubocop']
+        check: [test]
         ruby_version: [2.4.10, 2.5.8]
         puppet_gem_version: [~> 5.0, ~> 6.0]
         exclude:
