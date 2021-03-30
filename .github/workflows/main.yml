@@ -27,5 +27,23 @@ jobs:
       env:
         SPEC_OPTS: "--format documentation"
       with:
-        puppet_gem_version: ${{ matrix.puppet_gem_version }}
-        check: ${{ matrix.check }}
+        puppet_gem_version: ${{matrix.puppet_gem_version}}
+        check: ${{matrix.check}}
+  accept:
+    needs: spec
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        include:
+          - { beaker_set: fedora-33, collection: puppet5 }
+          - { beaker_set: fedora-33, collection: puppet6 }
+      fail-fast: true
+    steps:
+    - uses: actions/checkout@v2
+      with:
+        ruby-version: 2.7.2
+    - name: Acceptance Tests
+      env:
+        BEAKER_set: ${{matrix.beaker_set}}
+        BEAKER_PUPPET_COLLECTION: ${{matrix.collection}}
+      run: bundler exec rake beaker
