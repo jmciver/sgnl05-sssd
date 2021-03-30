@@ -35,7 +35,7 @@ jobs:
     strategy:
       matrix:
         include:
-          - { beaker_set: fedora-33, collection: puppet5 }
+          - { beaker_set: fedora-32, collection: puppet6 }
           - { beaker_set: fedora-33, collection: puppet6 }
       fail-fast: true
     steps:
