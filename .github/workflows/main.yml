@@ -35,9 +35,30 @@ jobs:
     strategy:
       matrix:
         include:
+          - { beaker_set: centos-6, collection: puppet5 }
+          - { beaker_set: centos-6, collection: puppet6 }
+          - { beaker_set: centos-6, collection: puppet7 }
+          - { beaker_set: centos-7, collection: puppet5 }
+          - { beaker_set: centos-7, collection: puppet6 }
+          - { beaker_set: centos-7, collection: puppet7 }
+          - { beaker_set: debian-8, collection: puppet5 }
+          - { beaker_set: debian-9, collection: puppet6 }
+          - { beaker_set: fedora-30, collection: puppet6 }
+          - { beaker_set: fedora-30, collection: puppet7 }
+          - { beaker_set: fedora-31, collection: puppet6 }
+          - { beaker_set: fedora-31, collection: puppet7 }
           - { beaker_set: fedora-32, collection: puppet6 }
+          - { beaker_set: fedora-32, collection: puppet7 }
           - { beaker_set: fedora-33, collection: puppet6 }
-      fail-fast: true
+          - { beaker_set: fedora-33, collection: puppet7 }
+          - { beaker_set: rhel-8, collection: puppet5 }
+          - { beaker_set: rhel-8, collection: puppet6 }
+          - { beaker_set: rhel-8, collection: puppet7 }
+          - { beaker_set: ubuntu-1604, collection: puppet5 }
+          - { beaker_set: ubuntu-1604, collection: puppet6 }
+          - { beaker_set: ubuntu-1804, collection: puppet5 }
+          - { beaker_set: ubuntu-1804, collection: puppet6 }
+      fail-fast: false
     steps:
     - uses: actions/checkout@v2
     - uses: ruby/setup-ruby@v1
