@@ -47,4 +47,6 @@ jobs:
       env:
         BEAKER_set: ${{matrix.beaker_set}}
         BEAKER_PUPPET_COLLECTION: ${{matrix.collection}}
-      run: bundler exec rake beaker
+      run:|
+        bundler install
+        bundler exec rake beaker
